@@ -54,9 +54,9 @@ print_text = f"""
 ║ Age:             {age:<30}║
 ║ Major:           {major:<30}║
 ║ GPA:             {gpa:<30}║
-║ Years in college:{years_in_college:<30}║
-║ Senior Status:   {is_senior:<30}║
-║ Good Student:    {is_good_student:<30}║
+║ Years in college:{years_in_college}║
+║ Senior Status:   {is_senior}║
+║ Good Student:    {is_good_student}║
 ╚════════════════════════════════════════════════╝
 """
 
