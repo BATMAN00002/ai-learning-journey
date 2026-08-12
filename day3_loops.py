@@ -14,7 +14,7 @@ print("-" * 60)
 
 print("Counting from 1 to 5:")
 for i in range(1, 6):
-    print(f"  {i}")
+    print(i)
 
 # ============================================
 # 2. FOR LOOP - WITH STEP
