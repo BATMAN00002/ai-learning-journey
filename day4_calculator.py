@@ -154,9 +154,9 @@ def main():
         # Ask if user wants to continue
         continue_choice = input("\nDo you want another calculation? (yes/no): ").lower()
         if continue_choice not in ["yes", "y"]:
-            print("\n" + "=" * 70)
+            print("\n" + "=" * 50)
             print("Thank you for using the calculator! 👋")
-            print("=" * 70)
+            print("=" * 50)
             break
 
 # ============================================
