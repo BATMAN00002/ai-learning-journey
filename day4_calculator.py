@@ -1,167 +1,113 @@
-# ============================================
-# DAY 4 PROJECT: CALCULATOR WITH FUNCTIONS
-# ============================================
-
-print("=" * 50)
-print("🧮 ADVANCED CALCULATOR WITH FUNCTIONS 🧮")
-print("=" * 50)
-
-# ============================================
-# DEFINE ALL CALCULATOR FUNCTIONS
-# ============================================
-
-def add(a, b):
-    """Add two numbers"""
-    return a + b
-
-def subtract(a, b):
-    """Subtract two numbers"""
-    return a - b
-
-def multiply(a, b):
-    """Multiply two numbers"""
-    return a * b
-
-def divide(a, b):
-    """Divide two numbers (with error handling)"""
-    if b == 0:
-        return "Error: Cannot divide by zero!"
-    return a / b
-
-def power(a, b):
-    """Raise a to the power of b"""
-    return a ** b
-
-def modulo(a, b):
-    """Get remainder of division"""
-    if b == 0:
-        return "Error: Cannot divide by zero!"
-    return a % b
-
+print("="*50)
+print("ADVANCE CALCULATOR USING FUNTIONS")
+print("="*50)
+#Defining all calculations
+def add(a,b):
+    """Returns the Adittion of two numbers"""
+    return a+b
+def subctract(a,b):
+    """Returns the Subtraction of two numbwers"""
+    return a-b
+def multiply(a,b):
+    """Returns the Multiplication of two numbers"""
+    return a*b
+def division(a,b):
+    """Returns the Division of two numbers"""
+    if b==0 :
+        return "Error: {b} Can't be zero!"
+    return a/b
+def modulo(a,b):
+    """Returns the remainder"""
+    if b==0 :
+        return "Error: {b} Can't be zero!"
+    return a%b
+def power(a,b):
+    """Returns the b to the power if a"""
+    return a**b
 def square_root(a):
-    """Calculate square root"""
+    """Returns the square root of a"""
     if a < 0:
-        return "Error: Cannot get square root of negative number!"
-    return a ** 0.5
+        return "For negative values don't have Square root!"
+    return a**0.5
+#Display menu
+def display():
+    """Gets the operation from the user"""
+    print("="*50)
+    print("Calculator Menu")
+    print("="*50)
+    print("1.Addition(+))")
+    print("2.Subtraction(-)")
+    print("3.Multiplication(*)")
+    print("4.Division(/)")
+    print("5.Modulos(Reminder(%))")
+    print("6.Power(**)")
+    print("7.Square root")
+    print("8.Exit")
 
-# ============================================
-# DISPLAY MENU
-# ============================================
-
-def display_menu():
-    """Shows calculator menu"""
-    print("\n" + "-" * 70)
-    print("CALCULATOR MENU:")
-    print("-" * 70)
-    print("1. Addition (+)")
-    print("2. Subtraction (-)")
-    print("3. Multiplication (*)")
-    print("4. Division (/)")
-    print("5. Power (**)")
-    print("6. Modulo (remainder)")
-    print("7. Square Root")
-    print("8. Exit")
-    print("-" * 70)
-
-# ============================================
-# GET VALID INPUT
-# ============================================
-
-def get_number(prompt):
-    """Gets a valid number from user"""
+#Valid input form user
+def valid(p):
     while True:
         try:
-            number = float(input(prompt))
-            return number
+            num = float(input(p))
+            return num
         except ValueError:
-            print("❌ Invalid input! Please enter a valid number.")
-
+            return "X Invalid input, Please try again!"
 def get_operation():
-    """Gets operation choice from user"""
+    """To get the operation from the user"""
     while True:
-        choice = input("Enter your choice (1-8): ").strip()
-        if choice in ["1", "2", "3", "4", "5", "6", "7", "8"]:
+        choice = input("Enter the operation (1-8): ")
+        if choice in ['1','2','3','4','5','6','7','8']:
             return choice
-        else:
-            print("❌ Invalid choice! Please enter 1-8.")
-
-# ============================================
-# PERFORM CALCULATION
-# ============================================
-
-def perform_calculation(operation, num1, num2=None):
-    """Performs the selected calculation"""
-    
+        else :
+            print("\nInvalid choice ,Enter from 1-8")
+#Perform calculation
+def perform(operation,num1,num2=None):
+    "Performs the selected operation"
     if operation == "1":
-        result = add(num1, num2)
-        print(f"\n✅ {num1} + {num2} = {result}")
-        
+        result = add(num1,num2)
+        print(f"\n {num1} + {num2} = {result}")
     elif operation == "2":
-        result = subtract(num1, num2)
-        print(f"\n✅ {num1} - {num2} = {result}")
-        
+        result = subctract(num1,num2)
+        print(f"\n {num1} - {num2} = {result}")
     elif operation == "3":
-        result = multiply(num1, num2)
-        print(f"\n✅ {num1} × {num2} = {result}")
-        
+        result = multiply(num1,num2)
+        print(f"\n {num1} * {num2} = {result}")
     elif operation == "4":
-        result = divide(num1, num2)
-        print(f"\n✅ {num1} ÷ {num2} = {result}")
-        
+        result = division(num1,num2)
+        print(f"\n{num1} / {num2} = {result}")
     elif operation == "5":
-        result = power(num1, num2)
-        print(f"\n✅ {num1} ^ {num2} = {result}")
-        
+        result = modulo(num1,num2)
+        print(f"\n{num1} % {num2} = {result}")
     elif operation == "6":
-        result = modulo(num1, num2)
-        print(f"\n✅ {num1} mod {num2} = {result}")
-        
+        result = power(num1,num2)
+        print(f"{num1} ** {num2} = {result}")
     elif operation == "7":
         result = square_root(num1)
-        print(f"\n✅ √{num1} = {result}")
-
-# ============================================
-# MAIN CALCULATOR LOOP
-# ============================================
-
+        print(f"\n√{num1} = {result}")
+#Main looping
 def main():
-    """Main calculator program"""
-    
     while True:
-        # Display menu
-        display_menu()
-        
-        # Get operation choice
-        operation = get_operation()
-        
-        # Exit if user chooses 8
+        display()
+        operation = get_operation().strip()
         if operation == "8":
-            print("\n" + "=" * 50)
-            print("Thank you for using the calculator! 👋")
-            print("=" * 50)
+            print("="*50)
+            print("Thanks you for using the Calculator!")
+            print("="*50)
             break
-        
-        # Get first number
-        num1 = get_number("Enter first number: ")
-        
-        # Get second number (except for square root)
-        if operation != "7":
-            num2 = get_number("Enter second number: ")
-            perform_calculation(operation, num1, num2)
+        num1 = valid("Enter first number: ")
+        if operation != "7" :
+            num2 = valid("Enter second number: ")
+            perform(operation, num1, num2)
         else:
-            perform_calculation(operation, num1)
-        
-        # Ask if user wants to continue
-        continue_choice = input("\nDo you want another calculation? (yes/no): ").lower()
-        if continue_choice not in ["yes", "y"]:
+            perform(operation, num1)
+
+        continue_choice = input("Do you want another calculaltion:(yes/no) ").lower()
+        if continue_choice not in ["yes","y"]:
             print("\n" + "=" * 50)
             print("Thank you for using the calculator! 👋")
             print("=" * 50)
             break
-
-# ============================================
-# RUN THE CALCULATOR
-# ============================================
-
 if __name__ == "__main__":
     main()
+
+
